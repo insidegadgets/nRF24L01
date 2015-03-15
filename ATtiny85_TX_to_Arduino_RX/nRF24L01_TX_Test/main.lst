@@ -1,0 +1,923 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	spi_transfer
+  18               	spi_transfer:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LM2:
+  25 0000 8FB9      		out 47-32,r24
+  26               	.LM3:
+  27 0002 80E4      		ldi r24,lo8(64)
+  28               	.LVL1:
+  29 0004 8EB9      		out 46-32,r24
+  30               	.LM4:
+  31 0006 8BE1      		ldi r24,lo8(27)
+  32 0008 00C0      		rjmp .L2
+  33               	.L3:
+  34 000a 8DB9      		out 45-32,r24
+  35               	.L2:
+  36               	.LM5:
+  37 000c 769B      		sbis 46-32,6
+  38 000e 00C0      		rjmp .L3
+  39               	.LM6:
+  40 0010 8FB1      		in r24,47-32
+  41               	/* epilogue start */
+  42               	.LM7:
+  43 0012 0895      		ret
+  44               	.LFE6:
+  46               	.global	spi_write_data
+  48               	spi_write_data:
+  49               	.LFB7:
+  50               	.LM8:
+  51               	.LVL2:
+  52               	/* prologue: function */
+  53               	/* frame size = 0 */
+  54               	.LM9:
+  55 0014 FC01      		movw r30,r24
+  56               	.LVL3:
+  57 0016 90E0      		ldi r25,lo8(0)
+  58               	.LVL4:
+  59               	.LBB72:
+  60               	.LBB73:
+  61               	.LM10:
+  62 0018 30E4      		ldi r19,lo8(64)
+  63               	.LM11:
+  64 001a 2BE1      		ldi r18,lo8(27)
+  65 001c 00C0      		rjmp .L6
+  66               	.L9:
+  67               	.LBE73:
+  68               	.LBE72:
+  69               	.LM12:
+  70 001e 8081      		ld r24,Z
+  71               	.LBB75:
+  72               	.LBB74:
+  73               	.LM13:
+  74 0020 8FB9      		out 47-32,r24
+  75               	.LM14:
+  76 0022 3EB9      		out 46-32,r19
+  77 0024 00C0      		rjmp .L7
+  78               	.L8:
+  79               	.LM15:
+  80 0026 2DB9      		out 45-32,r18
+  81               	.L7:
+  82               	.LM16:
+  83 0028 769B      		sbis 46-32,6
+  84 002a 00C0      		rjmp .L8
+  85               	.LM17:
+  86 002c 8FB1      		in r24,47-32
+  87               	.LBE74:
+  88               	.LBE75:
+  89               	.LM18:
+  90 002e 9F5F      		subi r25,lo8(-(1))
+  91 0030 3196      		adiw r30,1
+  92               	.L6:
+  93 0032 9617      		cp r25,r22
+  94 0034 00F0      		brlo .L9
+  95               	/* epilogue start */
+  96               	.LM19:
+  97 0036 0895      		ret
+  98               	.LFE7:
+ 100               	.global	spi_read_data
+ 102               	spi_read_data:
+ 103               	.LFB8:
+ 104               	.LM20:
+ 105               	.LVL5:
+ 106               	/* prologue: function */
+ 107               	/* frame size = 0 */
+ 108               	.LM21:
+ 109 0038 FC01      		movw r30,r24
+ 110               	.LVL6:
+ 111 003a 90E0      		ldi r25,lo8(0)
+ 112               	.LVL7:
+ 113               	.LBB76:
+ 114               	.LBB77:
+ 115               	.LM22:
+ 116 003c 30E4      		ldi r19,lo8(64)
+ 117               	.LM23:
+ 118 003e 2BE1      		ldi r18,lo8(27)
+ 119 0040 00C0      		rjmp .L12
+ 120               	.L15:
+ 121               	.LM24:
+ 122 0042 1FB8      		out 47-32,__zero_reg__
+ 123               	.LM25:
+ 124 0044 3EB9      		out 46-32,r19
+ 125 0046 00C0      		rjmp .L13
+ 126               	.L14:
+ 127               	.LM26:
+ 128 0048 2DB9      		out 45-32,r18
+ 129               	.L13:
+ 130               	.LM27:
+ 131 004a 769B      		sbis 46-32,6
+ 132 004c 00C0      		rjmp .L14
+ 133               	.LM28:
+ 134 004e 8FB1      		in r24,47-32
+ 135               	.LBE77:
+ 136               	.LBE76:
+ 137               	.LM29:
+ 138 0050 8193      		st Z+,r24
+ 139               	.LM30:
+ 140 0052 9F5F      		subi r25,lo8(-(1))
+ 141               	.L12:
+ 142 0054 9617      		cp r25,r22
+ 143 0056 00F0      		brlo .L15
+ 144               	/* epilogue start */
+ 145               	.LM31:
+ 146 0058 0895      		ret
+ 147               	.LFE8:
+ 149               	.global	spi_init
+ 151               	spi_init:
+ 152               	.LFB9:
+ 153               	.LM32:
+ 154               	/* prologue: function */
+ 155               	/* frame size = 0 */
+ 156               	.LM33:
+ 157 005a BA9A      		sbi 55-32,2
+ 158               	.LM34:
+ 159 005c B99A      		sbi 55-32,1
+ 160               	.LM35:
+ 161 005e B898      		cbi 55-32,0
+ 162               	.LM36:
+ 163 0060 C09A      		sbi 56-32,0
+ 164               	/* epilogue start */
+ 165               	.LM37:
+ 166 0062 0895      		ret
+ 167               	.LFE9:
+ 169               	.global	setup
+ 171               	setup:
+ 172               	.LFB10:
+ 173               	.LM38:
+ 174               	/* prologue: function */
+ 175               	/* frame size = 0 */
+ 176               	.LM39:
+ 177 0064 00D0      		rcall spi_init
+ 178               	/* epilogue start */
+ 179               	.LM40:
+ 180 0066 0895      		ret
+ 181               	.LFE10:
+ 183               	.global	mirf_init
+ 185               	mirf_init:
+ 186               	.LFB11:
+ 187               	.LM41:
+ 188               	/* prologue: function */
+ 189               	/* frame size = 0 */
+ 190               	.LM42:
+ 191 0068 87B3      		in r24,55-32
+ 192 006a 8861      		ori r24,lo8(24)
+ 193 006c 87BB      		out 55-32,r24
+ 194               	.LM43:
+ 195 006e C398      		cbi 56-32,3
+ 196               	.LM44:
+ 197 0070 C49A      		sbi 56-32,4
+ 198               	/* epilogue start */
+ 199               	.LM45:
+ 200 0072 0895      		ret
+ 201               	.LFE11:
+ 203               	.global	mirf_flush_rx_tx
+ 205               	mirf_flush_rx_tx:
+ 206               	.LFB13:
+ 207               	.LM46:
+ 208               	/* prologue: function */
+ 209               	/* frame size = 0 */
+ 210               	.LM47:
+ 211 0074 C498      		cbi 56-32,4
+ 212               	.LBB78:
+ 213               	.LBB79:
+ 214               	.LM48:
+ 215 0076 82EE      		ldi r24,lo8(-30)
+ 216 0078 8FB9      		out 47-32,r24
+ 217               	.LM49:
+ 218 007a 80E4      		ldi r24,lo8(64)
+ 219 007c 8EB9      		out 46-32,r24
+ 220               	.LM50:
+ 221 007e 8BE1      		ldi r24,lo8(27)
+ 222 0080 00C0      		rjmp .L24
+ 223               	.L25:
+ 224 0082 8DB9      		out 45-32,r24
+ 225               	.L24:
+ 226               	.LM51:
+ 227 0084 769B      		sbis 46-32,6
+ 228 0086 00C0      		rjmp .L25
+ 229               	.LM52:
+ 230 0088 8FB1      		in r24,47-32
+ 231               	.LBE79:
+ 232               	.LBE78:
+ 233               	.LM53:
+ 234 008a C49A      		sbi 56-32,4
+ 235               	.LM54:
+ 236 008c C498      		cbi 56-32,4
+ 237               	.LBB80:
+ 238               	.LBB81:
+ 239               	.LM55:
+ 240 008e 81EE      		ldi r24,lo8(-31)
+ 241 0090 8FB9      		out 47-32,r24
+ 242               	.LM56:
+ 243 0092 80E4      		ldi r24,lo8(64)
+ 244 0094 8EB9      		out 46-32,r24
+ 245               	.LM57:
+ 246 0096 8BE1      		ldi r24,lo8(27)
+ 247 0098 00C0      		rjmp .L26
+ 248               	.L27:
+ 249 009a 8DB9      		out 45-32,r24
+ 250               	.L26:
+ 251               	.LM58:
+ 252 009c 769B      		sbis 46-32,6
+ 253 009e 00C0      		rjmp .L27
+ 254               	.LM59:
+ 255 00a0 8FB1      		in r24,47-32
+ 256               	.LBE81:
+ 257               	.LBE80:
+ 258               	.LM60:
+ 259 00a2 C49A      		sbi 56-32,4
+ 260               	/* epilogue start */
+ 261               	.LM61:
+ 262 00a4 0895      		ret
+ 263               	.LFE13:
+ 265               	.global	mirf_status
+ 267               	mirf_status:
+ 268               	.LFB14:
+ 269               	.LM62:
+ 270               	/* prologue: function */
+ 271               	/* frame size = 0 */
+ 272               	.LM63:
+ 273 00a6 C498      		cbi 56-32,4
+ 274               	.LBB82:
+ 275               	.LBB83:
+ 276               	.LM64:
+ 277 00a8 87E0      		ldi r24,lo8(7)
+ 278 00aa 8FB9      		out 47-32,r24
+ 279               	.LM65:
+ 280 00ac 80E4      		ldi r24,lo8(64)
+ 281 00ae 8EB9      		out 46-32,r24
+ 282               	.LM66:
+ 283 00b0 8BE1      		ldi r24,lo8(27)
+ 284 00b2 00C0      		rjmp .L30
+ 285               	.L31:
+ 286 00b4 8DB9      		out 45-32,r24
+ 287               	.L30:
+ 288               	.LM67:
+ 289 00b6 769B      		sbis 46-32,6
+ 290 00b8 00C0      		rjmp .L31
+ 291               	.LM68:
+ 292 00ba 8FB1      		in r24,47-32
+ 293               	.LBE83:
+ 294               	.LBE82:
+ 295               	.LBB84:
+ 296               	.LBB85:
+ 297               	.LM69:
+ 298 00bc 8FEF      		ldi r24,lo8(-1)
+ 299 00be 8FB9      		out 47-32,r24
+ 300               	.LM70:
+ 301 00c0 80E4      		ldi r24,lo8(64)
+ 302 00c2 8EB9      		out 46-32,r24
+ 303               	.LM71:
+ 304 00c4 8BE1      		ldi r24,lo8(27)
+ 305 00c6 00C0      		rjmp .L32
+ 306               	.L33:
+ 307 00c8 8DB9      		out 45-32,r24
+ 308               	.L32:
+ 309               	.LM72:
+ 310 00ca 769B      		sbis 46-32,6
+ 311 00cc 00C0      		rjmp .L33
+ 312               	.LM73:
+ 313 00ce 8FB1      		in r24,47-32
+ 314               	.LVL8:
+ 315               	.LBE85:
+ 316               	.LBE84:
+ 317               	.LM74:
+ 318 00d0 C49A      		sbi 56-32,4
+ 319               	.LVL9:
+ 320               	/* epilogue start */
+ 321               	.LM75:
+ 322 00d2 0895      		ret
+ 323               	.LFE14:
+ 325               	.global	mirf_data_ready
+ 327               	mirf_data_ready:
+ 328               	.LFB15:
+ 329               	.LM76:
+ 330               	/* prologue: function */
+ 331               	/* frame size = 0 */
+ 332               	.LM77:
+ 333 00d4 C498      		cbi 56-32,4
+ 334               	.LBB86:
+ 335               	.LBB87:
+ 336               	.LM78:
+ 337 00d6 87E0      		ldi r24,lo8(7)
+ 338 00d8 8FB9      		out 47-32,r24
+ 339               	.LM79:
+ 340 00da 80E4      		ldi r24,lo8(64)
+ 341 00dc 8EB9      		out 46-32,r24
+ 342               	.LM80:
+ 343 00de 8BE1      		ldi r24,lo8(27)
+ 344 00e0 00C0      		rjmp .L36
+ 345               	.L37:
+ 346 00e2 8DB9      		out 45-32,r24
+ 347               	.L36:
+ 348               	.LM81:
+ 349 00e4 769B      		sbis 46-32,6
+ 350 00e6 00C0      		rjmp .L37
+ 351               	.LM82:
+ 352 00e8 8FB1      		in r24,47-32
+ 353               	.LBE87:
+ 354               	.LBE86:
+ 355               	.LBB88:
+ 356               	.LBB89:
+ 357               	.LM83:
+ 358 00ea 8FEF      		ldi r24,lo8(-1)
+ 359 00ec 8FB9      		out 47-32,r24
+ 360               	.LM84:
+ 361 00ee 80E4      		ldi r24,lo8(64)
+ 362 00f0 8EB9      		out 46-32,r24
+ 363               	.LM85:
+ 364 00f2 8BE1      		ldi r24,lo8(27)
+ 365 00f4 00C0      		rjmp .L38
+ 366               	.L39:
+ 367 00f6 8DB9      		out 45-32,r24
+ 368               	.L38:
+ 369               	.LM86:
+ 370 00f8 769B      		sbis 46-32,6
+ 371 00fa 00C0      		rjmp .L39
+ 372               	.LM87:
+ 373 00fc 8FB1      		in r24,47-32
+ 374               	.LVL10:
+ 375               	.LBE89:
+ 376               	.LBE88:
+ 377               	.LM88:
+ 378 00fe C49A      		sbi 56-32,4
+ 379               	.LM89:
+ 380 0100 8074      		andi r24,lo8(64)
+ 381               	.LVL11:
+ 382               	/* epilogue start */
+ 383 0102 0895      		ret
+ 384               	.LFE15:
+ 386               	.global	mirf_max_rt_reached
+ 388               	mirf_max_rt_reached:
+ 389               	.LFB16:
+ 390               	.LM90:
+ 391               	/* prologue: function */
+ 392               	/* frame size = 0 */
+ 393               	.LM91:
+ 394 0104 C498      		cbi 56-32,4
+ 395               	.LBB90:
+ 396               	.LBB91:
+ 397               	.LM92:
+ 398 0106 87E0      		ldi r24,lo8(7)
+ 399 0108 8FB9      		out 47-32,r24
+ 400               	.LM93:
+ 401 010a 80E4      		ldi r24,lo8(64)
+ 402 010c 8EB9      		out 46-32,r24
+ 403               	.LM94:
+ 404 010e 8BE1      		ldi r24,lo8(27)
+ 405 0110 00C0      		rjmp .L42
+ 406               	.L43:
+ 407 0112 8DB9      		out 45-32,r24
+ 408               	.L42:
+ 409               	.LM95:
+ 410 0114 769B      		sbis 46-32,6
+ 411 0116 00C0      		rjmp .L43
+ 412               	.LM96:
+ 413 0118 8FB1      		in r24,47-32
+ 414               	.LBE91:
+ 415               	.LBE90:
+ 416               	.LBB92:
+ 417               	.LBB93:
+ 418               	.LM97:
+ 419 011a 8FEF      		ldi r24,lo8(-1)
+ 420 011c 8FB9      		out 47-32,r24
+ 421               	.LM98:
+ 422 011e 80E4      		ldi r24,lo8(64)
+ 423 0120 8EB9      		out 46-32,r24
+ 424               	.LM99:
+ 425 0122 8BE1      		ldi r24,lo8(27)
+ 426 0124 00C0      		rjmp .L44
+ 427               	.L45:
+ 428 0126 8DB9      		out 45-32,r24
+ 429               	.L44:
+ 430               	.LM100:
+ 431 0128 769B      		sbis 46-32,6
+ 432 012a 00C0      		rjmp .L45
+ 433               	.LM101:
+ 434 012c 8FB1      		in r24,47-32
+ 435               	.LVL12:
+ 436               	.LBE93:
+ 437               	.LBE92:
+ 438               	.LM102:
+ 439 012e C49A      		sbi 56-32,4
+ 440               	.LM103:
+ 441 0130 8071      		andi r24,lo8(16)
+ 442               	.LVL13:
+ 443               	/* epilogue start */
+ 444 0132 0895      		ret
+ 445               	.LFE16:
+ 447               	.global	mirf_config_register
+ 449               	mirf_config_register:
+ 450               	.LFB18:
+ 451               	.LM104:
+ 452               	.LVL14:
+ 453               	/* prologue: function */
+ 454               	/* frame size = 0 */
+ 455               	.LM105:
+ 456 0134 C498      		cbi 56-32,4
+ 457               	.LM106:
+ 458 0136 8F71      		andi r24,lo8(31)
+ 459               	.LVL15:
+ 460 0138 8062      		ori r24,lo8(32)
+ 461               	.LBB94:
+ 462               	.LBB95:
+ 463               	.LM107:
+ 464 013a 8FB9      		out 47-32,r24
+ 465               	.LM108:
+ 466 013c 80E4      		ldi r24,lo8(64)
+ 467 013e 8EB9      		out 46-32,r24
+ 468               	.LM109:
+ 469 0140 8BE1      		ldi r24,lo8(27)
+ 470 0142 00C0      		rjmp .L48
+ 471               	.L49:
+ 472 0144 8DB9      		out 45-32,r24
+ 473               	.L48:
+ 474               	.LM110:
+ 475 0146 769B      		sbis 46-32,6
+ 476 0148 00C0      		rjmp .L49
+ 477               	.LM111:
+ 478 014a 8FB1      		in r24,47-32
+ 479               	.LBE95:
+ 480               	.LBE94:
+ 481               	.LBB96:
+ 482               	.LBB97:
+ 483               	.LM112:
+ 484 014c 6FB9      		out 47-32,r22
+ 485               	.LM113:
+ 486 014e 80E4      		ldi r24,lo8(64)
+ 487 0150 8EB9      		out 46-32,r24
+ 488               	.LM114:
+ 489 0152 8BE1      		ldi r24,lo8(27)
+ 490 0154 00C0      		rjmp .L50
+ 491               	.L51:
+ 492 0156 8DB9      		out 45-32,r24
+ 493               	.L50:
+ 494               	.LM115:
+ 495 0158 769B      		sbis 46-32,6
+ 496 015a 00C0      		rjmp .L51
+ 497               	.LM116:
+ 498 015c 8FB1      		in r24,47-32
+ 499               	.LBE97:
+ 500               	.LBE96:
+ 501               	.LM117:
+ 502 015e C49A      		sbi 56-32,4
+ 503               	/* epilogue start */
+ 504               	.LM118:
+ 505 0160 0895      		ret
+ 506               	.LFE18:
+ 508               	.global	mirf_get_data
+ 510               	mirf_get_data:
+ 511               	.LFB17:
+ 512               	.LM119:
+ 513               	.LVL16:
+ 514               	/* prologue: function */
+ 515               	/* frame size = 0 */
+ 516 0162 9C01      		movw r18,r24
+ 517               	.LM120:
+ 518 0164 C498      		cbi 56-32,4
+ 519               	.LBB98:
+ 520               	.LBB99:
+ 521               	.LM121:
+ 522 0166 81E6      		ldi r24,lo8(97)
+ 523               	.LVL17:
+ 524 0168 8FB9      		out 47-32,r24
+ 525               	.LM122:
+ 526 016a 80E4      		ldi r24,lo8(64)
+ 527 016c 8EB9      		out 46-32,r24
+ 528               	.LM123:
+ 529 016e 8BE1      		ldi r24,lo8(27)
+ 530 0170 00C0      		rjmp .L54
+ 531               	.L55:
+ 532 0172 8DB9      		out 45-32,r24
+ 533               	.L54:
+ 534               	.LM124:
+ 535 0174 769B      		sbis 46-32,6
+ 536 0176 00C0      		rjmp .L55
+ 537               	.LM125:
+ 538 0178 8FB1      		in r24,47-32
+ 539               	.LBE99:
+ 540               	.LBE98:
+ 541               	.LM126:
+ 542 017a C901      		movw r24,r18
+ 543 017c 65E0      		ldi r22,lo8(5)
+ 544 017e 00D0      		rcall spi_read_data
+ 545               	.LVL18:
+ 546               	.LM127:
+ 547 0180 C49A      		sbi 56-32,4
+ 548               	.LM128:
+ 549 0182 87E0      		ldi r24,lo8(7)
+ 550 0184 60E4      		ldi r22,lo8(64)
+ 551 0186 00D0      		rcall mirf_config_register
+ 552               	/* epilogue start */
+ 553               	.LM129:
+ 554 0188 0895      		ret
+ 555               	.LFE17:
+ 557               	.global	mirf_read_register
+ 559               	mirf_read_register:
+ 560               	.LFB19:
+ 561               	.LM130:
+ 562               	.LVL19:
+ 563               	/* prologue: function */
+ 564               	/* frame size = 0 */
+ 565               	.LM131:
+ 566 018a C498      		cbi 56-32,4
+ 567               	.LM132:
+ 568 018c 8F71      		andi r24,lo8(31)
+ 569               	.LVL20:
+ 570               	.LBB100:
+ 571               	.LBB101:
+ 572               	.LM133:
+ 573 018e 8FB9      		out 47-32,r24
+ 574               	.LM134:
+ 575 0190 80E4      		ldi r24,lo8(64)
+ 576 0192 8EB9      		out 46-32,r24
+ 577               	.LM135:
+ 578 0194 8BE1      		ldi r24,lo8(27)
+ 579 0196 00C0      		rjmp .L58
+ 580               	.L59:
+ 581 0198 8DB9      		out 45-32,r24
+ 582               	.L58:
+ 583               	.LM136:
+ 584 019a 769B      		sbis 46-32,6
+ 585 019c 00C0      		rjmp .L59
+ 586               	.LM137:
+ 587 019e 8FB1      		in r24,47-32
+ 588               	.LBE101:
+ 589               	.LBE100:
+ 590               	.LM138:
+ 591 01a0 CB01      		movw r24,r22
+ 592 01a2 642F      		mov r22,r20
+ 593               	.LVL21:
+ 594 01a4 00D0      		rcall spi_read_data
+ 595               	.LVL22:
+ 596               	.LM139:
+ 597 01a6 C49A      		sbi 56-32,4
+ 598               	/* epilogue start */
+ 599               	.LM140:
+ 600 01a8 0895      		ret
+ 601               	.LFE19:
+ 603               	.global	mirf_write_register
+ 605               	mirf_write_register:
+ 606               	.LFB20:
+ 607               	.LM141:
+ 608               	.LVL23:
+ 609               	/* prologue: function */
+ 610               	/* frame size = 0 */
+ 611               	.LM142:
+ 612 01aa C498      		cbi 56-32,4
+ 613               	.LM143:
+ 614 01ac 8F71      		andi r24,lo8(31)
+ 615               	.LVL24:
+ 616 01ae 8062      		ori r24,lo8(32)
+ 617               	.LBB102:
+ 618               	.LBB103:
+ 619               	.LM144:
+ 620 01b0 8FB9      		out 47-32,r24
+ 621               	.LM145:
+ 622 01b2 80E4      		ldi r24,lo8(64)
+ 623 01b4 8EB9      		out 46-32,r24
+ 624               	.LM146:
+ 625 01b6 8BE1      		ldi r24,lo8(27)
+ 626 01b8 00C0      		rjmp .L62
+ 627               	.L63:
+ 628 01ba 8DB9      		out 45-32,r24
+ 629               	.L62:
+ 630               	.LM147:
+ 631 01bc 769B      		sbis 46-32,6
+ 632 01be 00C0      		rjmp .L63
+ 633               	.LM148:
+ 634 01c0 8FB1      		in r24,47-32
+ 635               	.LBE103:
+ 636               	.LBE102:
+ 637               	.LM149:
+ 638 01c2 CB01      		movw r24,r22
+ 639 01c4 642F      		mov r22,r20
+ 640               	.LVL25:
+ 641 01c6 00D0      		rcall spi_write_data
+ 642               	.LVL26:
+ 643               	.LM150:
+ 644 01c8 C49A      		sbi 56-32,4
+ 645               	/* epilogue start */
+ 646               	.LM151:
+ 647 01ca 0895      		ret
+ 648               	.LFE20:
+ 650               		.data
+ 651               	.LC0:
+ 652 0000 636C 6E74 		.string	"clnt1"
+ 652      3100 
+ 653               		.text
+ 654               	.global	mirf_config
+ 656               	mirf_config:
+ 657               	.LFB12:
+ 658               	.LM152:
+ 659 01cc 0F93      		push r16
+ 660 01ce 1F93      		push r17
+ 661               	/* prologue: function */
+ 662               	/* frame size = 0 */
+ 663               	.LM153:
+ 664 01d0 85E0      		ldi r24,lo8(5)
+ 665 01d2 62E0      		ldi r22,lo8(2)
+ 666 01d4 00D0      		rcall mirf_config_register
+ 667               	.LM154:
+ 668 01d6 81E1      		ldi r24,lo8(17)
+ 669 01d8 65E0      		ldi r22,lo8(5)
+ 670 01da 00D0      		rcall mirf_config_register
+ 671               	.LM155:
+ 672 01dc 00E0      		ldi r16,lo8(.LC0)
+ 673 01de 10E0      		ldi r17,hi8(.LC0)
+ 674 01e0 8AE0      		ldi r24,lo8(10)
+ 675 01e2 B801      		movw r22,r16
+ 676 01e4 45E0      		ldi r20,lo8(5)
+ 677 01e6 00D0      		rcall mirf_write_register
+ 678               	.LM156:
+ 679 01e8 80E1      		ldi r24,lo8(16)
+ 680 01ea B801      		movw r22,r16
+ 681 01ec 45E0      		ldi r20,lo8(5)
+ 682 01ee 00D0      		rcall mirf_write_register
+ 683               	.LM157:
+ 684 01f0 82E0      		ldi r24,lo8(2)
+ 685 01f2 61E0      		ldi r22,lo8(1)
+ 686 01f4 00D0      		rcall mirf_config_register
+ 687               	.LM158:
+ 688 01f6 1092 0000 		sts PMODE,__zero_reg__
+ 689               	.LM159:
+ 690 01fa 80E0      		ldi r24,lo8(0)
+ 691 01fc 6AE0      		ldi r22,lo8(10)
+ 692 01fe 00D0      		rcall mirf_config_register
+ 693               	/* epilogue start */
+ 694               	.LM160:
+ 695 0200 1F91      		pop r17
+ 696 0202 0F91      		pop r16
+ 697 0204 0895      		ret
+ 698               	.LFE12:
+ 700               	.global	mirf_send
+ 702               	mirf_send:
+ 703               	.LFB21:
+ 704               	.LM161:
+ 705               	.LVL27:
+ 706 0206 1F93      		push r17
+ 707 0208 CF93      		push r28
+ 708 020a DF93      		push r29
+ 709               	/* prologue: function */
+ 710               	/* frame size = 0 */
+ 711 020c EC01      		movw r28,r24
+ 712 020e 162F      		mov r17,r22
+ 713               	.LM162:
+ 714 0210 1092 0000 		sts PMODE,__zero_reg__
+ 715               	.LM163:
+ 716 0214 80E0      		ldi r24,lo8(0)
+ 717               	.LVL28:
+ 718 0216 6AE0      		ldi r22,lo8(10)
+ 719               	.LVL29:
+ 720 0218 00D0      		rcall mirf_config_register
+ 721               	.LM164:
+ 722 021a C498      		cbi 56-32,4
+ 723               	.LBB104:
+ 724               	.LBB105:
+ 725               	.LM165:
+ 726 021c 81EE      		ldi r24,lo8(-31)
+ 727 021e 8FB9      		out 47-32,r24
+ 728               	.LM166:
+ 729 0220 80E4      		ldi r24,lo8(64)
+ 730 0222 8EB9      		out 46-32,r24
+ 731               	.LM167:
+ 732 0224 8BE1      		ldi r24,lo8(27)
+ 733 0226 00C0      		rjmp .L68
+ 734               	.L69:
+ 735 0228 8DB9      		out 45-32,r24
+ 736               	.L68:
+ 737               	.LM168:
+ 738 022a 769B      		sbis 46-32,6
+ 739 022c 00C0      		rjmp .L69
+ 740               	.LM169:
+ 741 022e 8FB1      		in r24,47-32
+ 742               	.LBE105:
+ 743               	.LBE104:
+ 744               	.LM170:
+ 745 0230 C49A      		sbi 56-32,4
+ 746               	.LM171:
+ 747 0232 C498      		cbi 56-32,4
+ 748               	.LBB106:
+ 749               	.LBB107:
+ 750               	.LM172:
+ 751 0234 80EA      		ldi r24,lo8(-96)
+ 752 0236 8FB9      		out 47-32,r24
+ 753               	.LM173:
+ 754 0238 80E4      		ldi r24,lo8(64)
+ 755 023a 8EB9      		out 46-32,r24
+ 756               	.LM174:
+ 757 023c 8BE1      		ldi r24,lo8(27)
+ 758 023e 00C0      		rjmp .L70
+ 759               	.L71:
+ 760 0240 8DB9      		out 45-32,r24
+ 761               	.L70:
+ 762               	.LM175:
+ 763 0242 769B      		sbis 46-32,6
+ 764 0244 00C0      		rjmp .L71
+ 765               	.LM176:
+ 766 0246 8FB1      		in r24,47-32
+ 767               	.LBE107:
+ 768               	.LBE106:
+ 769               	.LM177:
+ 770 0248 CE01      		movw r24,r28
+ 771 024a 612F      		mov r22,r17
+ 772 024c 00D0      		rcall spi_write_data
+ 773               	.LM178:
+ 774 024e C49A      		sbi 56-32,4
+ 775               	.LM179:
+ 776 0250 C39A      		sbi 56-32,3
+ 777               	.LBB108:
+ 778               	.LBB109:
+ 779               	.LBB110:
+ 780               	.LBB111:
+ 781               	.LM180:
+ 782 0252 85E0      		ldi r24,lo8(5)
+ 783               	.LVL30:
+ 784               	/* #APP */
+ 785               	 ;  83 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 786 0254 8A95      		1: dec r24
+ 787 0256 01F4      		brne 1b
+ 788               	 ;  0 "" 2
+ 789               	/* #NOAPP */
+ 790               	.LBE111:
+ 791               	.LBE110:
+ 792               	.LBE109:
+ 793               	.LBE108:
+ 794               	.LM181:
+ 795 0258 C398      		cbi 56-32,3
+ 796               	/* epilogue start */
+ 797               	.LM182:
+ 798 025a DF91      		pop r29
+ 799 025c CF91      		pop r28
+ 800               	.LVL31:
+ 801 025e 1F91      		pop r17
+ 802               	.LVL32:
+ 803 0260 0895      		ret
+ 804               	.LFE21:
+ 806               	.global	main
+ 808               	main:
+ 809               	.LFB22:
+ 810               	.LM183:
+ 811 0262 EF92      		push r14
+ 812 0264 FF92      		push r15
+ 813 0266 0F93      		push r16
+ 814 0268 1F93      		push r17
+ 815 026a DF93      		push r29
+ 816 026c CF93      		push r28
+ 817 026e 00D0      		rcall .
+ 818 0270 00D0      		rcall .
+ 819 0272 0F92      		push __tmp_reg__
+ 820 0274 CDB7      		in r28,__SP_L__
+ 821 0276 DEB7      		in r29,__SP_H__
+ 822               	/* prologue: function */
+ 823               	/* frame size = 5 */
+ 824               	.LBB112:
+ 825               	.LBB113:
+ 826               	.LM184:
+ 827 0278 00D0      		rcall spi_init
+ 828               	.LBE113:
+ 829               	.LBE112:
+ 830               	.LM185:
+ 831 027a 00D0      		rcall mirf_init
+ 832               	.LBB114:
+ 833               	.LBB115:
+ 834               	.LBB116:
+ 835               	.LBB117:
+ 836               	.LM186:
+ 837 027c 84ED      		ldi r24,lo8(12500)
+ 838 027e 90E3      		ldi r25,hi8(12500)
+ 839               	.LVL33:
+ 840               	/* #APP */
+ 841               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 842 0280 0197      		1: sbiw r24,1
+ 843 0282 01F4      		brne 1b
+ 844               	 ;  0 "" 2
+ 845               	/* #NOAPP */
+ 846               	.LBE117:
+ 847               	.LBE116:
+ 848               	.LBE115:
+ 849               	.LBE114:
+ 850               	.LM187:
+ 851 0284 00D0      		rcall mirf_config
+ 852               	.LVL34:
+ 853               	.LM188:
+ 854 0286 DE01      		movw r26,r28
+ 855 0288 1196      		adiw r26,1
+ 856 028a E0E0      		ldi r30,lo8(C.5.1450)
+ 857 028c F0E0      		ldi r31,hi8(C.5.1450)
+ 858 028e 85E0      		ldi r24,lo8(5)
+ 859               	.L74:
+ 860 0290 0190      		ld r0,Z+
+ 861 0292 0D92      		st X+,r0
+ 862 0294 8150      		subi r24,lo8(-(-1))
+ 863 0296 01F4      		brne .L74
+ 864               	.LM189:
+ 865 0298 7E01      		movw r14,r28
+ 866 029a 0894      		sec
+ 867 029c E11C      		adc r14,__zero_reg__
+ 868 029e F11C      		adc r15,__zero_reg__
+ 869               	.LBB118:
+ 870               	.LBB119:
+ 871               	.LBB120:
+ 872               	.LBB121:
+ 873               	.LM190:
+ 874 02a0 09E1      		ldi r16,lo8(25)
+ 875 02a2 10E0      		ldi r17,hi8(25)
+ 876               	.L82:
+ 877               	.LBE121:
+ 878               	.LBE120:
+ 879               	.LBE119:
+ 880               	.LBE118:
+ 881               	.LM191:
+ 882 02a4 00D0      		rcall mirf_flush_rx_tx
+ 883               	.LM192:
+ 884 02a6 C701      		movw r24,r14
+ 885 02a8 65E0      		ldi r22,lo8(5)
+ 886 02aa 00D0      		rcall mirf_send
+ 887 02ac 80E1      		ldi r24,lo8(10000)
+ 888 02ae 97E2      		ldi r25,hi8(10000)
+ 889               	.LVL35:
+ 890               	.L75:
+ 891               	.LBB125:
+ 892               	.LBB124:
+ 893               	.LBB123:
+ 894               	.LBB122:
+ 895               	.LM193:
+ 896 02b0 F801      		movw r30,r16
+ 897               	.LVL36:
+ 898               	/* #APP */
+ 899               	 ;  105 "c:/winavr-20100110/lib/gcc/../../avr/include/util/delay_basic.h" 1
+ 900 02b2 3197      		1: sbiw r30,1
+ 901 02b4 01F4      		brne 1b
+ 902               	 ;  0 "" 2
+ 903               	/* #NOAPP */
+ 904               	.LBE122:
+ 905               	.LBE123:
+ 906               	.LM194:
+ 907 02b6 0197      		sbiw r24,1
+ 908               	.LM195:
+ 909 02b8 01F4      		brne .L75
+ 910               	.LBE124:
+ 911               	.LBE125:
+ 912               	.LM196:
+ 913 02ba 00D0      		rcall mirf_max_rt_reached
+ 914               	.LVL37:
+ 915 02bc 8823      		tst r24
+ 916 02be 01F0      		breq .L82
+ 917               	.LM197:
+ 918 02c0 87E0      		ldi r24,lo8(7)
+ 919 02c2 60E1      		ldi r22,lo8(16)
+ 920 02c4 00D0      		rcall mirf_config_register
+ 921 02c6 00C0      		rjmp .L82
+ 922               	.LFE22:
+ 924               		.data
+ 927               	C.5.1450:
+ 928 0006 0E        		.byte	14
+ 929 0007 7B        		.byte	123
+ 930 0008 3F        		.byte	63
+ 931 0009 17        		.byte	23
+ 932 000a 36        		.byte	54
+ 933               		.comm PMODE,1,1
+ 1086               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:2      *ABS*:0000003f __SREG__
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:3      *ABS*:0000003e __SP_H__
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:4      *ABS*:0000003d __SP_L__
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:5      *ABS*:00000034 __CCP__
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:6      *ABS*:00000000 __tmp_reg__
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:7      *ABS*:00000001 __zero_reg__
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:18     .text:00000000 spi_transfer
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:48     .text:00000014 spi_write_data
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:102    .text:00000038 spi_read_data
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:151    .text:0000005a spi_init
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:171    .text:00000064 setup
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:185    .text:00000068 mirf_init
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:205    .text:00000074 mirf_flush_rx_tx
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:267    .text:000000a6 mirf_status
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:327    .text:000000d4 mirf_data_ready
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:388    .text:00000104 mirf_max_rt_reached
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:449    .text:00000134 mirf_config_register
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:510    .text:00000162 mirf_get_data
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:559    .text:0000018a mirf_read_register
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:605    .text:000001aa mirf_write_register
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:656    .text:000001cc mirf_config
+                            *COM*:00000001 PMODE
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:702    .text:00000206 mirf_send
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:808    .text:00000262 main
+C:/DOCUME~1/ALEXI~1/LOCALS~1/Temp/ccaAVOk0.s:927    .data:00000006 C.5.1450
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

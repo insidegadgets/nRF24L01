@@ -1,0 +1,428 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+LOAD main.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libm.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x398
+ *(.vectors)
+ .vectors       0x00000000       0x22 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x00000022                . = ALIGN (0x2)
+                0x00000022                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000022        0x0 linker stubs
+ *(.trampolines*)
+                0x00000022                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000022                __ctors_start = .
+ *(.ctors)
+                0x00000022                __ctors_end = .
+                0x00000022                __dtors_start = .
+ *(.dtors)
+                0x00000022                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000022        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+                0x00000022                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000022        0x8 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000002a       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+                0x0000002a                __do_copy_data
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000040        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+ *(.init9)
+ *(.text)
+ .text          0x00000044        0x2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+                0x00000044                __vector_1
+                0x00000044                __vector_12
+                0x00000044                __bad_interrupt
+                0x00000044                __vector_6
+                0x00000044                __vector_3
+                0x00000044                __vector_11
+                0x00000044                __vector_13
+                0x00000044                __vector_7
+                0x00000044                __vector_5
+                0x00000044                __vector_9
+                0x00000044                __vector_15
+                0x00000044                __vector_8
+                0x00000044                __vector_14
+                0x00000044                __vector_10
+                0x00000044                __vector_16
+ .text          0x00000046      0x34e main.o
+                0x00000248                mirf_config
+                0x000000ea                turnOffwatchdog
+                0x00000206                mirf_read_register
+                0x000000aa                system_sleep
+                0x00000118                mirf_init
+                0x00000180                mirf_max_rt_reached
+                0x00000294                mirf_transmit_data
+                0x000000a0                spi_init
+                0x00000046                spi_transfer
+                0x00000226                mirf_write_register
+                0x00000150                mirf_data_ready
+                0x000000c2                setup_watchdog
+                0x000001de                mirf_get_data
+                0x0000005a                spi_write_data
+                0x00000334                main
+                0x00000122                mirf_status
+                0x0000036c                __vector_4
+                0x0000007e                spi_read_data
+                0x00000380                __vector_2
+                0x000000fe                setup
+                0x000001b0                mirf_config_register
+ .text          0x00000394        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .text          0x00000394        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+                0x00000394                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000394        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .text.libgcc   0x00000394        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+                0x00000394                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000394        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+                0x00000394                exit
+                0x00000394                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000394        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000398                _etext = .
+
+.data           0x00800060       0x12 load address 0x00000398
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+ .data          0x00800060       0x11 main.o
+                0x0080006c                data_out
+ .data          0x00800071        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .data          0x00800071        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800072                . = ALIGN (0x2)
+ *fill*         0x00800071        0x1 00
+                0x00800072                _edata = .
+                0x00800072                PROVIDE (__data_end, .)
+
+.bss            0x00800072        0x0
+                0x00800072                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x00800072        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+ .bss           0x00800072        0x0 main.o
+ .bss           0x00800072        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+ .bss           0x00800072        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+ *(.bss*)
+ *(COMMON)
+                0x00800072                PROVIDE (__bss_end, .)
+                0x00000398                __data_load_start = LOADADDR (.data)
+                0x000003aa                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800072        0x0
+                0x00800072                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800072                PROVIDE (__noinit_end, .)
+                0x00800072                _end = .
+                0x00800072                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x20
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 main.o
+
+.debug_pubnames
+                0x00000000      0x196
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000      0x196 main.o
+
+.debug_info     0x00000000      0x6d8
+ *(.debug_info)
+ .debug_info    0x00000000      0x6d8 main.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x1ce
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x1ce main.o
+
+.debug_line     0x00000000      0x85b
+ *(.debug_line)
+ .debug_line    0x00000000      0x85b main.o
+
+.debug_frame    0x00000000      0x160
+ *(.debug_frame)
+ .debug_frame   0x00000000      0x160 main.o
+
+.debug_str      0x00000000      0x222
+ *(.debug_str)
+ .debug_str     0x00000000      0x222 main.o
+                                0x262 (size before relaxing)
+
+.debug_loc      0x00000000      0x1dd
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x1dd main.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(main.elf elf32-avr)
+LOAD linker stubs
+
+.debug_ranges   0x00000000       0xf0
+ .debug_ranges  0x00000000       0xf0 main.o
+
+Cross Reference Table
+
+Symbol                                            File
+__bad_interrupt                                   c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__data_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+__data_start                                      c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+__do_copy_data                                    c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_copy_data.o)
+                                                  main.o
+__heap_end                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__init                                            c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__stack                                           c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_1                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_10                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_11                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_12                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_13                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_14                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_15                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_16                                       c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_2                                        main.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_3                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_4                                        main.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_5                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_6                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_7                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_8                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_9                                        c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vector_default                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+__vectors                                         c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+_exit                                             c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+data_out                                          main.o
+exit                                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr25\libgcc.a(_exit.o)
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+main                                              main.o
+                                                  c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr25/crttn24.o
+mirf_config                                       main.o
+mirf_config_register                              main.o
+mirf_data_ready                                   main.o
+mirf_get_data                                     main.o
+mirf_init                                         main.o
+mirf_max_rt_reached                               main.o
+mirf_read_register                                main.o
+mirf_status                                       main.o
+mirf_transmit_data                                main.o
+mirf_write_register                               main.o
+setup                                             main.o
+setup_watchdog                                    main.o
+spi_init                                          main.o
+spi_read_data                                     main.o
+spi_transfer                                      main.o
+spi_write_data                                    main.o
+system_sleep                                      main.o
+turnOffwatchdog                                   main.o
